@@ -1,5 +1,5 @@
 <sdf version='1.7'>
-  <world name='default'>
+  <world name='arena'>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -18,7 +18,7 @@
         <falloff>0</falloff>
       </spot>
     </light>
-    <model name='ground_plane'>
+    <model name='arena_plane'>
       <static>1</static>
       <link name='link'>
         <collision name='collision'>
@@ -29,20 +29,29 @@
             </plane>
           </geometry>
           <surface>
-            <contact>
-              <collide_bitmask>65535</collide_bitmask>
-              <ode/>
-            </contact>
             <friction>
               <ode>
-                <mu>100</mu> 
-                <mu2>50</mu2>
+                <mu>50.000000</mu>
+                <mu2>50.000000</mu2>
+                <fdir1>0.000000 1.000000 0.000000</fdir1>
+                <slip1>0.0100000</slip1>
+                <slip2>0.0100000</slip2>
               </ode>
-              <torsional>
-                <ode/>
-              </torsional>
             </friction>
-            <bounce/>
+            <bounce>
+              <restitution_coefficient>0.000000</restitution_coefficient>
+              <threshold>100000.000000</threshold>
+            </bounce>
+            <contact>
+              <ode>
+                <soft_cfm>0.000000</soft_cfm>
+                <soft_erp>0.200000</soft_erp>
+                <kp>1000000000.000000</kp>
+                <kd>1.000000</kd>
+                <max_vel>100.000000</max_vel>
+                <min_depth>0.001000</min_depth>
+              </ode>
+            </contact>
           </surface>
           <max_contacts>10</max_contacts>
         </collision>
@@ -92,7 +101,7 @@
       <real_time>72 222228069</real_time>
       <wall_time>1706490810 80892577</wall_time>
       <iterations>64404</iterations>
-      <model name='ground_plane'>
+      <model name='arena_ground'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>

@@ -4,6 +4,8 @@ from ament_index_python import get_package_share_directory
 
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch_ros.actions import Node
@@ -12,7 +14,7 @@ def generate_launch_description():
     pkg_name = 'rdt_legacy_robot'
 
     gazebo_world_file = os.path.join(
-        get_package_share_directory(pkg_name), 'worlds', 'demo_world.world'
+        get_package_share_directory(pkg_name), 'nyu_world.world'
     )
 
     rsp = IncludeLaunchDescription(
@@ -27,7 +29,7 @@ def generate_launch_description():
         )]),
         launch_arguments={'world': gazebo_world_file}.items()
     )
-
+  
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
@@ -39,4 +41,5 @@ def generate_launch_description():
         rsp,
         gazebo,
         spawn_entity
-    ])
+        ],
+    )

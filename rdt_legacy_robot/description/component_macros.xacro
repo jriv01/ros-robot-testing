@@ -35,7 +35,7 @@
                     <box size="${length} ${width} ${height}"/>
                 </geometry>
                 <material name="white"/>
-            </visual>
+            </visual>                        
             <collision>
                 <origin xyz="${length/2} 0 ${height/2}"/>
                 <geometry>
