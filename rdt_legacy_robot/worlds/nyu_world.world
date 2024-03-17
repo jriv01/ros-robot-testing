@@ -1,5 +1,5 @@
 <sdf version='1.7'>
-  <world name='arena'>
+  <world name='nyu_world'>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -18,6 +18,12 @@
         <falloff>0</falloff>
       </spot>
     </light>
+
+    <include>
+       <uri>model://Apriltag36_11_00000</uri>
+       <pose>-1.5 0 0.5 0 1.57 3.14</pose>
+    </include>
+
     <model name='arena_plane'>
       <static>1</static>
       <link name='link'>
