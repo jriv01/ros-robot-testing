@@ -14,7 +14,7 @@
             </visual>
             <collision>
                 <geometry>
-                    <sphere radius="${radius + 0.1}"/> 
+                    <sphere radius="${radius + 0.001}"/> 
                 </geometry>    
             </collision>
             <xacro:inertial_cylinder mass="${mass}" length="${width}" radius="${radius}">
