@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="inertial_macros.xacro"/>
+    <xacro:include filename="inertial_macros.xacro" />
 
     <!-- Macro for creating a wheel -->
     <xacro:macro name="wheel" params="robot_pos radius width mass">
         <link name="${robot_pos}_wheel">
             <visual>
                 <geometry>
-                    <cylinder radius="${radius}" length="${width}"/> 
-                </geometry>    
-                <material name="black"/>
+                    <cylinder radius="${radius}" length="${width}" />
+                </geometry>
+                <material name="black" />
             </visual>
             <collision>
                 <geometry>
-                    <sphere radius="${radius + 0.001}"/> 
-                </geometry>    
+                    <sphere radius="${radius + 0.001}" />
+                </geometry>
             </collision>
             <xacro:inertial_cylinder mass="${mass}" length="${width}" radius="${radius}">
-                <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
             </xacro:inertial_cylinder>
         </link>
     </xacro:macro>
@@ -27,22 +27,22 @@
     <xacro:macro name="chassis" params="length width height mass">
         <link name="chassis">
             <visual>
-                <origin xyz="${length/2} 0 ${height/2}"/>
+                <origin xyz="${length/2} 0 ${height/2}" />
                 <geometry>
-                    <box size="${length} ${width} ${height}"/>
+                    <box size="${length} ${width} ${height}" />
                 </geometry>
-                <material name="white"/>
-            </visual>    
+                <material name="white" />
+            </visual>
 
             <collision>
-                <origin xyz="${length/2} 0 ${height/2}"/>
+                <origin xyz="${length/2} 0 ${height/2}" />
                 <geometry>
-                    <box size="${length} ${width} ${height}"/>
+                    <box size="${length} ${width} ${height}" />
                 </geometry>
             </collision>
-            
+
             <xacro:inertial_box mass="${mass}" x="${length}" y="${width}" z="${height}">
-                <origin xyz="${length/2} 0 ${height/2}" rpy="0.0 0.0 0.0"/>
+                <origin xyz="${length/2} 0 ${height/2}" rpy="0.0 0.0 0.0" />
             </xacro:inertial_box>
         </link>
     </xacro:macro>
