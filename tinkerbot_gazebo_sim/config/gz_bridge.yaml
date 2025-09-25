@@ -32,3 +32,10 @@
   ros_type_name: "sensor_msgs/msg/JointState"
   gz_type_name: "gz.msgs.Model"
   direction: GZ_TO_ROS
+
+# PointClouds published by depth camera sensor
+- ros_topic_name: "front_depth_camera/points"
+  gz_topic_name: "front_depth_camera/image_raw/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
