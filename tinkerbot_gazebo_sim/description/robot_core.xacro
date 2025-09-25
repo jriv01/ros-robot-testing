@@ -127,4 +127,15 @@
         <child link="front_webcam_link" />
         <origin xyz="${webcam_x_offset} ${webcam_y_offset} ${webcam_z_offset}" rpy="0 0 0" />
     </joint>
+
+    <!-- Front webcam -->
+    <xacro:depth_cam
+        name="front_depth_camera"
+    />
+
+    <joint name="front_depth_camera_joint" type="fixed">
+        <parent link="chassis" />
+        <child link="front_depth_camera_link" />
+        <origin xyz="${webcam_x_offset} ${webcam_y_offset} ${webcam_z_offset - 0.2}" rpy="0 0 0" />
+    </joint>
 </robot>
