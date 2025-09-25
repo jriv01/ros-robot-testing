@@ -13,6 +13,8 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
+    os.environ["LIBGL_ALWAYS_SOFTWARE"] = "1"
+
     package_name = "tinkerbot_gazebo_sim"
 
     rsp = IncludeLaunchDescription(
