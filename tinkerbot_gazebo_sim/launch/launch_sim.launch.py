@@ -77,6 +77,22 @@ def generate_launch_description():
         output="screen",
     )
 
+    # !!!
+    # Not sure why, but the depth camera plugin for Gazebo Fortress
+    # publishes the incorrect frame name to ros2 Humble.
+    # This tf is just to make sure the transform graph isn't broken
+    # for point cloud data.
+    depth_camera_tf = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=[
+            "--frame-id",
+            "front_depth_camera_link",
+            "--child-frame-id",
+            "tinkerbot/base_link/front_depth_camera",
+        ],
+    )
+
     return LaunchDescription(
         [
             rsp,
@@ -85,5 +101,6 @@ def generate_launch_description():
             spawn_entity,
             ros_gz_bridge,
             ros_image_bridge,
+            depth_camera_tf,
         ]
     )
