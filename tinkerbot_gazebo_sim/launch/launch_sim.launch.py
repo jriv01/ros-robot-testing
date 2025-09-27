@@ -25,9 +25,8 @@ def generate_launch_description():
     world = LaunchConfiguration("world")
     world_arg = DeclareLaunchArgument(
         "world",
-        # default_value = 'empty.sdf',
         default_value=os.path.join(
-            get_package_share_directory(package_name), "worlds", "empty.world"
+            get_package_share_directory(package_name), "worlds", "apriltag.world"
         ),
         description="World to load",
     )
